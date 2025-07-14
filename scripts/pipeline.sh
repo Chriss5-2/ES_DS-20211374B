@@ -6,3 +6,4 @@ mkdir -p metrics
 
 kubectl top pods --all-namespaces --no-headers > "metrics/metric.csv"
 
+python scripts/plugin.py
