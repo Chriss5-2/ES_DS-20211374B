@@ -16,9 +16,18 @@ jobs:
     - name: Start minikube
       uses: medyagh/setup-minikube@latest
 
+    - name: Build docker images
+      run: |
+        minikube image build -t timeserver:v5 app
+
+    - name: Deploy to minikube
+      run: kubectl apply -f k8s/
 
     - name: Sleep 10 seconds
       run: sleep 10
+
+    - name: Check pods
+      run: kubectl get pods -A
 
     - name: Install metrics-server (with fix for Minikube)
       run: |
