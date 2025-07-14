@@ -55,6 +55,10 @@ jobs:
       run: |
         bash scripts/pipeline.sh
 
-    - name: Mostrar métricas
+    - name: Mostrar métricas en csv
       run: |
         cat metrics/metric.csv
+
+    - name: Mostrar métricas en json
+      run: |
+        cat fixtures/metrics.json
