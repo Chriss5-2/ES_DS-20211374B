@@ -113,3 +113,7 @@ C:\USERS\CHRISTIAN\DESKTOP\PRACTICA\PRACTICE\ES_DS-20211374B
 │   └───plugin.py
 └───tests
 ```
+
+# Pruebas
+
+Para los test, he usado **csvkit** para verificar el formato, primero cree dos variables para al momento de quitarle el encabezado, verificar que el archivo original tiene una fila más que la fila sin encabezado, y de esta forma demuestro que exactamente funcionó el formato y además hago que imprima una línea que imprime el numero de columnas de las metricas y efectivamente son 4 como los que da el kubectl top pods --all-namespaces
