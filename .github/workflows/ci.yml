@@ -38,12 +38,14 @@ jobs:
           fi
           sleep 5
         done
-    
-    - name: Probar metrics-server
-      run: |
-        kubectl top pods -n default
-    
+
     - name: Sleep 15 seconds
       run: sleep 15
 
-    
+    - name: Recolectar métricas
+      run: |
+        bash scripts/pipeline.sh
+
+    - name: Mostrar métricas
+      run: |
+        cat metrics/metric.csv

@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: timeserver
+  namespace: default
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      pod: timeserver-pod
+  template:
+    metadata:
+      labels:
+        pod: timeserver-pod
+    spec:
+      containers:
+      - name: timeserver-container
+        image: timeserver:v5
+        imagePullPolicy: Never
+        env:
+        - name: JAEGER_HOST
+          value: "jaeger-collector"
+        ports:
+        - containerPort: 80
