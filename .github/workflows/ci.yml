@@ -51,6 +51,10 @@ jobs:
     - name: Sleep 15 seconds
       run: sleep 15
 
+    - name: Instalar jq
+      run: |
+        sudo apt install jq
+
     - name: Recolectar métricas
       run: |
         bash scripts/pipeline.sh
@@ -62,3 +66,7 @@ jobs:
     - name: Mostrar métricas en json
       run: |
         cat fixtures/metrics.json
+    
+    - name: Mostrar conversión de json a csv exitosa
+      run: |
+        cat fixtures/metrics.csv
