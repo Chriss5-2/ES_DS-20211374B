@@ -32,7 +32,7 @@ def collect_metrics():
     with open(fixtures_dir / f"metrics.csv", "a", encoding="utf-8") as metric_files:
         try:
             metrics_result = subprocess.run(
-                    ["kubectl", "top", "pod", "--all-namespaces", "--no-headers"],
+                    ["kubectl", "top", "pod", "--all-namespaces"],
                     capture_output=True,
                     text=True,
                     check=True,
